@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/navigation.css">
+    <script src="/js/initialize.js"></script>
+    <script defer src="/js/components/sign_up.js"></script>
+    <script defer src="/js/components/login.js"></script>
+    <script defer src="/js/components/depot_list.js"></script>
+    <script defer src="/js/components/depot_info.js"></script>
 </head>
+
 <body>
-    
+
     <header>
         <h1>GreenR SA</h1>
         <nav class="header-nav">
@@ -16,11 +23,17 @@
                 <li class="">Home</li>
                 <li class="">Sign Up</li>
                 <li class="">Login</li>
-                <li class="">Search Depots</li>
             </ul>
         </nav>
-        <input class="search-bar" type="text" placeholder="Please input your Postcode...">
+        <form class="search-bar" action="/api/depots/search" onsubmit="renderDepotList()">
+            <input type="text" placeholder="Please input your Postcode...">
+            <button>Search Depots</button>
+        </form>
+
+        <section class="depot-list"></section>
+
     </header>
 
 </body>
+
 </html>
