@@ -1,7 +1,5 @@
-CREATE DATABASE greenR_SA;
-\c greenR_SA
-
-
+CREATE DATABASE greenr_sa;
+\c greenr_sa
 
 
 
