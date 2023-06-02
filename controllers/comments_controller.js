@@ -12,8 +12,9 @@ router.get('/', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-  const commentDetails = req.body.commentDetails
-  console.log(commentDetails)
+  const depot_id = req.body.depot_id
+  const user_id = req.body.user_id
+  const comment = req.body.comment
 
 
   Comment

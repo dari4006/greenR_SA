@@ -1,12 +1,15 @@
-// function renderAddComment() {
-//     document.querySelector('#comments').innerHTML = `
-//       <section class='create-comment'>
-//         <form action="" onSubmit="createComment(event)">
-          
-//         </form>
-//       </section>
-//     `
-//   }
+function renderAddComment() {
+    document.querySelector('#comments').innerHTML = `
+      <section class='create-comment'>
+        <form action="" onSubmit="createComment(event)">
+        <fieldset>
+        <label for="">commenting: </label>
+        <input type="text" name="comment">
+      </fieldset> 
+        </form>
+      </section>
+    `
+  }
   
   function createComment(event) {
     event.preventDefault()

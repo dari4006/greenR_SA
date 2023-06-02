@@ -1,3 +1,20 @@
+// function renderCommentList() {
+//     document.querySelector('#comment').innerHTML = `
+//       <section class="comment-list">
+//         ${renderComments()}
+//       </section>
+//     `
+//   }
+  
+//   function renderComments() {
+//     return state.comments.map(comment => `
+//     <section class="comment" data-id='${comment.id}'>
+//         <h2>${comment.comment}</h2>
+//         <span class="material-symbols-outlined delete" onClick="deleteComment(event)">delete</span>
+//     </section>
+//   `).join('')
+//   }
+
 function renderCommentList() {
     document.querySelector('#comment').innerHTML = `
       <section class="comment-list">
@@ -5,16 +22,16 @@ function renderCommentList() {
       </section>
     `
   }
-  
   function renderComments() {
     return state.comments.map(comment => `
-    <section class="comment" data-id='${comment.id}'>
-        <h2>${comment}</h2>
+    <section class="comment" data-id='${comment.depot_id}'>
+        <h2>${comment.comment}</h2>
         <span class="material-symbols-outlined delete" onClick="deleteComment(event)">delete</span>
     </section>
   `).join('')
   }
-  
+
+
   function deleteComment(event) {
     const deleteBtn = event.target
     const commentDOM = deleteBtn.closest('.comment')

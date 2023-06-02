@@ -24,3 +24,11 @@ fetch('/api/depots')
     state.comments = comments
     console.log(state.comments)
   })
+
+  fetch('/api/comments')
+  .then(res => res.json())
+  .then(comments => {
+    state.comments = comments
+    renderCommentList()
+
+  })
