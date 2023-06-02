@@ -17,12 +17,30 @@
     border: 2px solid #208b57;
 }
 
+.search-bar > button, 
+.log-in > form > button, 
+.sign-up > form > button {
+    color: #FFFFFF;
+    font-size: 1rem;
+    font-weight: 300;
+    background-color: #208b57;
+    border: none;
+    padding: 0.5rem;
+}
+
 .log-in > form > fieldset,
 .sign-up > form > fieldset {
+    width: 100%;
     border: none;
     padding: 0;
+    margin: 1rem 0;
     display: flex;
     flex-direction: column;
+}
+
+.log-in > form > fieldset > label,
+.sign-up > form > fieldset > label {
+    margin-bottom: 0.5rem;
 }
 
 
