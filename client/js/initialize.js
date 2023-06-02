@@ -1,5 +1,6 @@
 const state = {
-    depots: []
+    depots: [],
+    comments: []
 }
 
 fetch('/api/depots')
@@ -15,4 +16,11 @@ fetch('/api/depots')
       if (data.result === 'successful') {
         state.loggedInUser = ({email: data.email})
       }
+  })
+
+  fetch('/api/users')
+  .then(res => res.json())
+  .then(comments => {
+    state.comments = comments
+    console.log(state.comments)
   })
