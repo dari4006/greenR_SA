@@ -3,7 +3,7 @@ const { findDepotByDepotId } = require("../../../models/depot")
 function renderDepotInfo(depot_id){
   // console.log(depot_id)
   // console.log(state)
-  findDepotByDepotId
+  // findDepotByDepotId
   const depotDOM = document.querySelector('#page')
   depotDOM.innerHTML = `
     <form action="" onSubmit = "renderDepotCommentList(depot_id)">
