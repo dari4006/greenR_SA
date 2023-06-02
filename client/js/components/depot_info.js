@@ -17,8 +17,8 @@ function renderDepotInfo(depot_id){
     </section>
     <form action="" onSubmit="createComment(event)">
       <input type="textarea">
-    <button>Submit Comment</button>
-  </form>
+      <button>Submit Comment</button>
+    </form>
 `
 const commentsDOM = document.querySelector('#comments');
 commentsDOM.innerHTML = state.comments.map(comment => `
