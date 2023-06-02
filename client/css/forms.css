@@ -1,0 +1,14 @@
+.search-bar {
+    width: 100%;
+}
+
+.search-bar > input {
+    border: 2px solid #208b57;
+    padding: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+.search-bar > input:focus {
+    outline: none;
+    border: 2px solid #208b57;
+}
