@@ -17,4 +17,10 @@ router.post('/', (req, res) => {
     .then(email => res.json({email: email}))
 })
 
+router.get('/', (req, res) => {
+  User
+    .getComments()
+    .then(comments => res.json(comments))
+})
+
 module.exports = router
