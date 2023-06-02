@@ -24,25 +24,14 @@
                 <li onClick="renderSignUp()">Sign Up</li>
                 <li onClick="renderLogin()">Log in</li>
                 <li onClick="renderLogout()">Log Out</li>
+                <li onClick="renderSearch()">Search Depots</li>
             </ul>
         </nav>
-        <main id="page" class="content"></main>
-        <form class="search-bar" action="/api/depots/search" onsubmit="renderDepotList()">
-            <input type="text" placeholder="Please input your Postcode...">
-            <button>Search Depots</button>
-        </form>
 
-        <section class="depot-list"></section>
+        <main id="page" class="content"></main>
 
     </header>
 
 </body>
 
 </html>
-
-<!-- <div id="login-form">
-    <form action="" onSubmit="logIn(event)">
-      ...
-    </form>
-  </div>
-   -->
