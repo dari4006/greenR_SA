@@ -1,11 +1,10 @@
 function renderDepotInfo(depot_id){
+
   const depotId = depot_id
 
   const filteredDepot = state.depots.filter(depot => depot.depot_id == depotId)
 
-  // console.log(state.depots)
   const depot = filteredDepot[0]
-
   const depotDOM = document.querySelector('#page')
   depotDOM.innerHTML= `
     <section class="depot" data-id="${depot.depot_id}">
