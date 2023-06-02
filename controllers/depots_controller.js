@@ -11,4 +11,12 @@ router.get('/', (req, res) => {
     .then(depots => res.json(depots))
 })
 
+router.get('/:depot_id', (req, res) => {
+  const depotId = req.params.depotId
+
+  Depot
+    .findDepotByDepotId(depotId)
+    .then(depot => res.json(depot))
+})
+
 module.exports = router

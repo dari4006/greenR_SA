@@ -10,7 +10,7 @@ const Depot = {
   },
 
   findDepotByDepotId: (depot_id) => {
-    const sql = `SELECT * FROM depots WHERE depot_id = $1`
+    const sql = `SELECT * FROM depots WHERE depot_id = '$1'`
 
     return db
       .query(sql, [depot_id])
