@@ -27,6 +27,6 @@ app.use(express.json())
 // middleware function to log request info in the terminal
 app.use(logger)
 app.use('/api/depots', depotsController)
+app.use('/api/comments', commentsController)
 app.use('/api/sessions', sessionsController)
 app.use('/api/users', usersConstroller)
-app.use('/api/comments',commentsController)

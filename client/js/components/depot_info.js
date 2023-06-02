@@ -15,7 +15,7 @@ function renderDepotInfo(depot_id){
       <p>${depot.suburb} ${depot.postcode}</p>
       <p>${depot.region}</p>
     </section>
-    <form action="" onSubmit = "renderDepotCommentList(depot_id)">
+    <form action="" onSubmit="createComment(event)">
       <input type="textarea">
     <button>Submit Comment</button>
   </form>
@@ -28,6 +28,9 @@ commentsDOM.innerHTML = state.comments.map(comment => `
     </header>
     <p>DepotID: ${comment.depot_id}</p>
     <p>UserID: ${comment.user_id}</p>
+    <ul>
+   <li class="material-symbols-outlined edit-comment" onClick="renderCommentList()">Edit</li>
+</ul>  
   </section>
 `).join('');
   // const depot = findDepotByDepotId(depot_id)
