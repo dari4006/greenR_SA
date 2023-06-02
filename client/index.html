@@ -10,6 +10,7 @@
     <script src="/js/initialize.js"></script>
     <script defer src="/js/components/sign_up.js"></script>
     <script defer src="/js/components/login.js"></script>
+    <script defer src="/js/components/log_out.js"></script>
     <script defer src="/js/components/depot_list.js"></script>
     <script defer src="/js/components/depot_info.js"></script>
 </head>
@@ -20,11 +21,12 @@
         <h1>GreenR SA</h1>
         <nav class="header-nav">
             <ul>
-                <li class="">Home</li>
-                <li class="">Sign Up</li>
-                <li class="">Login</li>
+                <li onClick="renderSignUp()">Sign Up</li>
+                <li onClick="renderLogin()">Log in</li>
+                <li onClick="renderLogout()">Log Out</li>
             </ul>
         </nav>
+        <main id="page" class="content"></main>
         <form class="search-bar" action="/api/depots/search" onsubmit="renderDepotList()">
             <input type="text" placeholder="Please input your Postcode...">
             <button>Search Depots</button>
@@ -37,3 +39,10 @@
 </body>
 
 </html>
+
+<!-- <div id="login-form">
+    <form action="" onSubmit="logIn(event)">
+      ...
+    </form>
+  </div>
+   -->
