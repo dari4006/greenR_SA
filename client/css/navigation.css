@@ -1,17 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Geologica:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 .header-nav {
     margin: 0 auto;
-    padding: 0 1rem;
+    /* padding: 0 1rem; */
 }
 
 .header-nav ul {
     display: flex;
     justify-content: center;
+    gap: 2rem;
     list-style: none;
-    padding: 0;
+    padding: 1rem;
+    background-color: #208b57;
+    color: #ffffff;
 }
 
 .header-nav li {
-    padding: 0 0.5rem;
+    cursor: pointer;
 }
 
 .search-bar {
