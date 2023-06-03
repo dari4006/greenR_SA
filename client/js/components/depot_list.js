@@ -9,7 +9,8 @@ function renderDepotList() {
       <p>${depot.postcode}</p>
       <p>${depot.region}</p>
     </section>
-`).join('')
+`).join('');
+renderEmptyCommentList ();
 }
 
 function renderSearch() {
