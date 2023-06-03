@@ -1,20 +1,3 @@
-// function renderCommentList() {
-//     document.querySelector('#comment').innerHTML = `
-//       <section class="comment-list">
-//         ${renderComments()}
-//       </section>
-//     `
-//   }
-  
-//   function renderComments() {
-//     return state.comments.map(comment => `
-//     <section class="comment" data-id='${comment.id}'>
-//         <h2>${comment.comment}</h2>
-//         <span class="material-symbols-outlined delete" onClick="deleteComment(event)">delete</span>
-//     </section>
-//   `).join('')
-//   }
-
 function renderCommentList() {
     document.querySelector('#comments').innerHTML = `
       <section class="comment-list">
@@ -26,7 +9,7 @@ function renderComments() {
   return state.comments.map(comment => `
   <section class="comment" data-id='${comment.depot_id}'>
       <h2>${comment.comment}</h2>
-      <span class="material-symbols-outlined delete" onClick="deleteComment(event)">delete</span>
+      <span class="material-symbols-outlined delete" onClick="deleteComment(event, ${comment.id})">delete</span>
       <span onclick="renderEditComment(${comment.id})">edit</span>
   </section>
 `).join('')
@@ -62,15 +45,15 @@ function editComment(event, commentId){
   console.log("comment edited successfully!")
 }
 
-function deleteComment(event) {
+function deleteComment(event, comment_id) {
   const deleteBtn = event.target
   const commentDOM = deleteBtn.closest('.comment')
-  const commentId = commentDOM.dataset.id
-  fetch(`/api/comments/${commentId}`, {
+ // const commentId = commentDOM.dataset.id
+  fetch(`/api/comments/${comment_id}`, {
     method: 'DELETE'
   })
     .then(() => {
-      state.comments = state.comments.filter(t => t.id != commentId)
+      state.comments = state.comments.filter(c => c.id != comment_id)
       renderCommentList()
     })
 }
