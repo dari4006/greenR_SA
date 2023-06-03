@@ -18,17 +18,16 @@ fetch('/api/depots')
       }
   })
 
-  fetch('/api/users')
+// fetch('/api/users')
+//   .then(res => res.json())
+//   .then(users => {
+//     state.users = users
+//     console.log(state.users)
+//   })
+
+fetch('/api/comments')
   .then(res => res.json())
   .then(comments => {
     state.comments = comments
     console.log(state.comments)
-  })
-
-  fetch('/api/comments')
-  .then(res => res.json())
-  .then(comments => {
-    state.comments = comments
-    renderCommentList()
-
-  })
+})
