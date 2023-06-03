@@ -14,7 +14,8 @@ function renderLogin() {
           <button>Log in</button>
         </form>
       </section>
-    `
+    `;
+    renderEmptyCommentList ();
   }
 
   function logIn(event) {

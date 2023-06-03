@@ -15,6 +15,10 @@ function renderComments() {
 `).join('')
 }
 
+function renderEmptyCommentList () {
+  document.querySelector('#comments').innerHTML = ``
+}
+
 function renderEditComment(commentId) {
   // console.log(commentId)
   document.querySelector('#comments').innerHTML =`
