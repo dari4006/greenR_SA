@@ -22,6 +22,17 @@ router.post('/', (req, res) => {
     .then(comment => res.json(comment))
 })
 
+router.put('/:id', (req, res) => {
+  const commentId = req.params.id
+  const depot_id = req.body.depot_id
+  const comment = req.body.comment
+  const user_id = req.body.user_id
+
+  Comment
+    .update(comment, commentId)
+    .then(comment => res.json(comment))
+})
+
 router.delete('/:id', (req, res) => {
   const commentId = req.params.id
 

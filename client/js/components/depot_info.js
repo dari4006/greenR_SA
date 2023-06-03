@@ -15,36 +15,11 @@ function renderDepotInfo(depot_id){
       <p>${depot.suburb} ${depot.postcode}</p>
       <p>${depot.region}</p>
     </section>
-    <form action="" onSubmit="createComment(event)">
-      <input type="textarea">
+    <form class="comment-form" action="" onSubmit="addComment(event, ${depot.depot_id})">
+      <input type="textarea" name="comment">
       <button>Submit Comment</button>
     </form>
-`
-const commentsDOM = document.querySelector('#comments');
-commentsDOM.innerHTML = state.comments.map(comment => `
-  <section class="comment" data-id="${comment.depot_id}">
-    <header>
-      <h2>${comment.comment}</h2>
-    </header>
-    <p>DepotID: ${comment.depot_id}</p>
-    <p>UserID: ${comment.user_id}</p>
-    <ul>
-   <li class="material-symbols-outlined edit-comment" onClick="renderCommentList()">Edit</li>
-</ul>  
-  </section>
-`).join('');
+  `;
+  renderCommentList();
   // const depot = findDepotByDepotId(depot_id)
-}
-
-function renderDepotCommentList(depot_id) {
-  const commentsDOM = document.querySelector('#comments');
-  commentsDOM.innerHTML = state.comments.map(comment => `
-    <section class="comment" data-id="${comment.depot_id}">
-      <header>
-        <h2>${comment.comment}</h2>
-      </header>
-      <p>DepotID: ${comment.depot_id}</p>
-      <p>UserID: ${comment.user_id}</p>
-    </section>
-  `).join('');
 }

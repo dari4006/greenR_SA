@@ -19,7 +19,7 @@ router.post('/', (req, res) => {
 
 router.get('/', (req, res) => {
   User
-    .getComments()
+    .getUsers()
     .then(comments => res.json(comments))
 })
 

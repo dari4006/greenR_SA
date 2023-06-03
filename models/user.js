@@ -35,8 +35,8 @@ const User = {
       .then(dbRes => dbRes.rows[0].email)
   },
 
-  getComments: () => {
-    const sql = 'SELECT * FROM comments'
+  getUsers: () => {
+    const sql = 'SELECT * FROM users'
 
     return db
       .query(sql)

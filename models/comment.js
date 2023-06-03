@@ -36,6 +36,17 @@ const Comment = {
       .then(dbRes => dbRes.rows[0])
   },
 
+  update: (comment, commentId) => {
+    const sql = `
+      UPDATE comments SET comment = $1 WHERE id = $2
+      RETURNING *
+    `
+
+    return db
+      .query(sql, [comment, commentId])
+      .then(dbRes => dbRes.rows[0])
+  },
+
   delete: (commentId) => {
     const sql = 'DELETE FROM comments WHERE id = $1'
 
