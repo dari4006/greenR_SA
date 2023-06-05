@@ -20,6 +20,7 @@ function renderSearch() {
   <button>Search Depots</button>
   </form>
   `
+  renderEmptyCommentList ();
 }
 
 function renderSearchResult(event) {
@@ -46,5 +47,5 @@ function renderSearchResult(event) {
   </section>
 `).join('')
 
-  console.log("This point is reached!")
+  renderEmptyCommentList ();
 }
