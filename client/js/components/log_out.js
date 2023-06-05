@@ -1,7 +1,7 @@
 function renderLogout() {
     document.querySelector('#page').innerHTML = `
       <section class='log-out'>
-        <h2>Are you sure you want to log out?</h2>
+        <h3>Are you sure you want to log out?</h3>
         <button onClick="logOut()">Log out</button>
       </section>
     `;
