@@ -25,10 +25,10 @@ router.put('/:id', (req, res) => {
   const commentId = req.params.id
   const depot_id = req.body.depot_id
   const comment = req.body.comment
-  const user_id = req.body.user_id
+  const user_id = req.session.userId
 
   Comment
-    .update(comment, commentId)
+    .update(user_id, comment, commentId)
     .then(comment => res.json(comment))
 })
 

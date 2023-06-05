@@ -17,7 +17,7 @@ const db = require('../db/db')
 
 const Comment = {
   findAll: () => {
-    const sql = `SELECT comments.depot_id, comments.comment, comments.id, users.email FROM comments INNER JOIN users ON users.id = comments.user_id;`
+    const sql = `SELECT comments.user_id, comments.depot_id, comments.comment, comments.id, users.email FROM comments INNER JOIN users ON users.id = comments.user_id;`
 
     return db
       .query(sql)
@@ -36,14 +36,14 @@ const Comment = {
       .then(dbRes => dbRes.rows[0])
   },
 
-  update: (comment, commentId) => {
+  update: (user_id, comment, commentId) => {
     const sql = `
-      UPDATE comments SET comment = $1 WHERE id = $2
+      UPDATE comments SET user_id =1, comment = $2 WHERE id = $3
       RETURNING *
     `
 
     return db
-      .query(sql, [comment, commentId])
+      .query(sql, [user_id, comment, commentId])
       .then(dbRes => dbRes.rows[0])
   },
 
