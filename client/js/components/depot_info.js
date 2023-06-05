@@ -1,7 +1,6 @@
 async function renderDepotInfo(depot_id) {
   //wait for the whole image url to be sent before proceed
   const mapImageUrl = await getMapURL(depot_id)
-  console.log(`The image url is: ${mapImageUrl}`)
   const depotId = depot_id;
   const filteredDepot = state.depots.filter(depot => depot.depot_id == depotId);
   const depot = filteredDepot[0];
@@ -22,7 +21,7 @@ async function renderDepotInfo(depot_id) {
       <button>Submit Comment</button>
     </form>
   `;
-  renderFilteredCommentsList(depot_id); 
+  renderFilteredComments(depot_id); 
 }
 
 async function getMapURL (depotId) {

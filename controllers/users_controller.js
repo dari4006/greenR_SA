@@ -20,7 +20,15 @@ router.post('/', (req, res) => {
 router.get('/', (req, res) => {
   User
     .getUsers()
-    .then(comments => res.json(comments))
+    .then(users => res.json(users))
+})
+
+router.get('/currentUser', (req, res) => {
+  const userEmail = 
+
+  User
+    .findByEmail(userEmail)
+    .then(user => res.json(user).id)
 })
 
 module.exports = router
