@@ -8,7 +8,7 @@ function renderFilteredComments (depot_id) {
       if (state.loggedInUser != null && comment.email === state.loggedInUser.email) {
           parentCommentsElement.innerHTML += `
             <section class="comment" data-id='${comment.id}'>
-              <p>UserID ${comment.user_id} commented:</p> 
+              <p>User: ${comment.email}</p> 
               <h4>${comment.comment}</h4>
               <span class="material-symbols-outlined delete" onClick="deleteComment(event,${depot_id} )">delete</span>
               <span onclick="renderEditComment(${comment.id}, ${depot_id})">edit</span>
@@ -16,7 +16,7 @@ function renderFilteredComments (depot_id) {
       `} else {
           parentCommentsElement.innerHTML += `
           <section class="comment" data-id='${comment.id}'>
-            <p>UserID ${comment.user_id} commented:</p> 
+            <p>User: ${comment.email}</p> 
             <h4>${comment.comment}</h4>
           </section><br>`
       }
@@ -32,7 +32,6 @@ function renderEmptyCommentList () {
 function renderEditComment(commentId, depotId) {
   const filteredDepot = state.depots.filter(depot => depot.depot_id == depotId)
   const filteredComment = state.comments.filter(c => c.id == commentId)
-  console.log("filteredCommentCotent")
   const depot = filteredDepot[0]
   const depotDOM = document.querySelector('#page')
   depotDOM.innerHTML= `
