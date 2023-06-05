@@ -31,3 +31,10 @@ fetch('/api/comments')
     state.comments = comments
     console.log(state.comments)
 })
+
+fetch('/api/coordinates')
+  .then(res => res.json())
+  .then(coordinates => {
+    state.coordinates = coordinates
+    console.log(state.coordinates)
+})

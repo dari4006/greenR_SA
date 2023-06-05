@@ -5,6 +5,11 @@ function renderDepotInfo(depot_id){
   const filteredDepot = state.depots.filter(depot => depot.depot_id == depotId)
 
   const depot = filteredDepot[0]
+
+  const new1 = depot.coordinates.split(',')
+  console.log(new1)
+  //if (depot.coordinates !==  )
+  
   const depotDOM = document.querySelector('#page')
   depotDOM.innerHTML= `
     <section class="depot" data-id="${depot.depot_id}">

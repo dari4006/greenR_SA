@@ -36,6 +36,9 @@ function renderSearchResult(event) {
 
   console.log(filteredDepot)
 
+  const coordsTest = filteredDepot.coordinates.split(',')
+  console.log(coordsTest)
+
   const depotDOM = document.querySelector('#page')
   depotDOM.innerHTML = filteredDepot.map(depot => `
   <section class="depot" data-id='${depot.depot_id}'>
