@@ -19,6 +19,7 @@
 
 .search-bar > button, 
 .log-in > form > button, 
+.log-out > button, 
 .sign-up > form > button {
     color: #FFFFFF;
     font-size: 1rem;
@@ -26,6 +27,7 @@
     background-color: #208b57;
     border: none;
     padding: 0.5rem;
+    cursor: pointer;
 }
 
 .log-in > form > fieldset,
