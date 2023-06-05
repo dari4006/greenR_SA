@@ -17,8 +17,14 @@ function renderSearch() {
   document.querySelector('#page').innerHTML = `
   <form action="" class="search-bar" onsubmit="renderSearchResult(event)">
   <input type="text" name="postcode" placeholder="Please input your Postcode...">
-  <button>Search Depots</button>
+  <button>Search By Postcode</button>
   </form>
+
+  <form action="" class="search-bar" onsubmit="renderSearchBySuburbResult(event)">
+  <input type="text" name="suburb" placeholder="Please input your Suburb...">
+  <button>Search By Suburb</button>
+  </form>
+
   `
   renderEmptyCommentList ();
 }
