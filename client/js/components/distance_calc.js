@@ -20,3 +20,4 @@ function calculationTest(depot_id){
     distanceFromOrigin = Math.round(distanceFromOrigin)
     return distanceFromOrigin
 }
+//
