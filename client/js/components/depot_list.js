@@ -29,16 +29,11 @@ function renderSearchResult(event) {
   let postcodeInput = data.postcode
   console.log(postcodeInput)
   const prefix = postcodeInput.split('').slice(0, 3).join('');
-
   console.log(prefix)
 
   const filteredDepot = state.depots.filter(depot => depot.postcode.toString().split('').slice(0, 3).join('') === prefix);
 
   console.log(filteredDepot)
-
-  const coordsTest = filteredDepot.coordinates.split(',')
-  console.log(coordsTest)
-
   const depotDOM = document.querySelector('#page')
   depotDOM.innerHTML = filteredDepot.map(depot => `
   <section class="depot" data-id='${depot.depot_id}'>
