@@ -23,6 +23,6 @@ function renderDepotInfo(depot_id){
       <button>Submit Comment</button>
     </form>
   `;
-  renderCommentList();
+  renderFilteredCommentsList (depot_id);
   // const depot = findDepotByDepotId(depot_id)
 }

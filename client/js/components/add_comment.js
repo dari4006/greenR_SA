@@ -1,32 +1,20 @@
-// function renderAddComment() {
-//     document.querySelector('#comments').innerHTML = `
-//       <section class='create-comment'>
-//         <form action="" onSubmit="createComment(event)">
-//         <fieldset>
-//         <label for="">commenting: </label>
-//         <input type="text" name="comment">
-//       </fieldset> 
-//         </form>
-//       </section>
-//     `
-//   }
-  
-function addComment (event, depot_id){
-  event.preventDefault()
-  const form = document.querySelector(".comment-form")
-  const data = Object.fromEntries(new FormData(form))
-  data[depot_id]=depot_id
-  console.log(data)
-  fetch('/api/comments', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data)
-  })
-      .then(res => res.json())
-      .then(comment => {
-          state.comments.push(comment)
-          renderCommentList();
-      });
-  
-  console.log('add comment successful!')
+function addComment (event, depot_Id){
+event.preventDefault()
+const form = document.querySelector(".comment-form")
+const data = Object.fromEntries(new FormData(form))
+console.log(depot_Id)
+console.log(data)
+data.depot_id = depot_Id
+console.log(data)
+fetch('/api/comments', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data)
+})
+    .then(res => res.json())
+    .then(comment => {
+        state.comments.push(comment)
+        renderFilteredCommentsList(depot_Id);
+    });
+console.log('add comment successful')
 }
