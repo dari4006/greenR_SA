@@ -13,9 +13,8 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
   const depot_id = req.body.depot_id
-  const user_id = req.body.user_id
+  const user_id = req.session.userId
   const comment = req.body.comment
-
 
   Comment
     .create(depot_id, user_id, comment)

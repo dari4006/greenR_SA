@@ -1,40 +1,29 @@
-function renderCommentList() {
-    document.querySelector('#comments').innerHTML = `
-      <section class="comment-list">
-        ${renderComments()}
-      </section>
-    `
-  }
-function renderComments() {
-  return state.comments.map(comment => `
-  <section class="comment" data-id='${comment.depot_id}'>
-      <h2>${comment.comment}</h2>
-      <span class="material-symbols-outlined delete" onClick="deleteComment(event, ${comment.id})">delete</span>
-      <span onclick="renderEditComment(${comment.id})">edit</span>
-  </section>
-`).join('')
-}
-
-function renderFilteredCommentsList (depot_id) {
-  document.querySelector('#comments').innerHTML = `
-    <section class="comment-list">
-      ${renderFilteredComments (depot_id)}
-    </section>
-  `
-}
-
 function renderFilteredComments (depot_id) {
   const filteredComments = state.comments.filter(c => c.depot_id == depot_id)
-  console.log(filteredComments)
-  return filteredComments.map(comment => `
-  <section class="comment" data-id='${comment.id}'>
-      <p>UserID ${comment.user_id} commented:</p> 
-      <h4>${comment.comment}</h4>
-      <span class="material-symbols-outlined delete" onClick="deleteComment(event,${depot_id} )">delete</span>
-      <span onclick="renderEditComment(${comment.id}, ${depot_id})">edit</span>
-  </section><br>
-`).join('')
+  const parentCommentsElement = document.querySelector('#comments')
+
+  parentCommentsElement.innerHTML = ''
+  
+  filteredComments.forEach(comment => {
+      if (state.loggedInUser != null && comment.email === state.loggedInUser.email) {
+          parentCommentsElement.innerHTML += `
+            <section class="comment" data-id='${comment.id}'>
+              <p>UserID ${comment.user_id} commented:</p> 
+              <h4>${comment.comment}</h4>
+              <span class="material-symbols-outlined delete" onClick="deleteComment(event,${depot_id} )">delete</span>
+              <span onclick="renderEditComment(${comment.id}, ${depot_id})">edit</span>
+            </section><br>
+      `} else {
+          parentCommentsElement.innerHTML += `
+          <section class="comment" data-id='${comment.id}'>
+            <p>UserID ${comment.user_id} commented:</p> 
+            <h4>${comment.comment}</h4>
+          </section><br>`
+      }
+  })
+
 }
+
 
 function renderEmptyCommentList () {
   document.querySelector('#comments').innerHTML = ``
@@ -43,7 +32,6 @@ function renderEmptyCommentList () {
 function renderEditComment(commentId, depotId) {
   const filteredDepot = state.depots.filter(depot => depot.depot_id == depotId)
   const filteredComment = state.comments.filter(c => c.id == commentId)
-  const filteredCommentCotent = filteredComment.comment
   console.log("filteredCommentCotent")
   const depot = filteredDepot[0]
   const depotDOM = document.querySelector('#page')
@@ -59,9 +47,8 @@ function renderEditComment(commentId, depotId) {
     <form class="comment-form1" action="" onSubmit="editComment(event, ${commentId}, ${depotId})">
     <input type="textarea" name="comment" placeholder=" ">
     <button>Edit Comment</button>
-  </form>
-`;
-renderEmptyCommentList ()
+  </form>`;
+  renderEmptyCommentList ()
 }
 
 function editComment(event, commentId, depotId){
@@ -79,7 +66,7 @@ function editComment(event, commentId, depotId){
     console.log(comment)
     state.comments = state.comments.filter(c => c.id != comment.id)
       state.comments.push(comment)
-      renderFilteredCommentsList (depotId);
+      renderFilteredComments (depotId);
     })
 }
 
@@ -93,6 +80,6 @@ function deleteComment(event, depot_id) {
   })
     .then(() => {
       state.comments = state.comments.filter(d => d.id != commentId)
-      renderFilteredCommentsList (depot_id)
+      renderFilteredComments (depot_id)
     })
 }
