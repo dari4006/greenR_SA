@@ -15,6 +15,14 @@ const Depot = {
     return db
       .query(sql, [depot_id])
       .then(dbRes => dbRes.rows)
+  },
+
+  grabDepotCoords: (depot_id) => {
+    const sql = `SELECT * FROM depots WHERE coordinates = '$1'`
+  
+    return db
+      .query(sql, [depot_id])
+      .then(dbRes => dbRes.rows)
   }
 }
 

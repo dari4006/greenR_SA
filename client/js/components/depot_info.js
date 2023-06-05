@@ -5,6 +5,8 @@ function renderDepotInfo(depot_id){
   const filteredDepot = state.depots.filter(depot => depot.depot_id == depotId)
 
   const depot = filteredDepot[0]
+
+  const distanceFromOrigin = calculationTest(depot_id)
   const depotDOM = document.querySelector('#page')
   depotDOM.innerHTML= `
     <section class="depot" data-id="${depot.depot_id}">
@@ -14,6 +16,7 @@ function renderDepotInfo(depot_id){
       <p>${depot.address}</p>
       <p>${depot.suburb} ${depot.postcode}</p>
       <p>${depot.region}</p>
+      <p>${distanceFromOrigin} KM's</p>
     </section>
     <form class="comment-form" action="" onSubmit="addComment(event, ${depot.depot_id})">
       <input type="textarea" name="comment">

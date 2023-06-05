@@ -19,4 +19,11 @@ router.get('/:depot_id', (req, res) => {
     .then(depot => res.json(depot))
 })
 
+router.get('/:coorindates', (req, res) => {
+  const coorindates = req.params.coorindates
+
+  Depot
+    .grabDepotCoords(cooridnates)
+    .then(coords => res.json(coords))
+})
 module.exports = router
