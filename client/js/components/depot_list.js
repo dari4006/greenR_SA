@@ -6,8 +6,7 @@ function renderDepotList() {
       <header>
         <h2 onClick="renderDepotInfo(${depot.depot_id})">${depot.depot_name}</h2>
       </header>
-      <p>${depot.postcode}</p>
-      <p>${depot.region}</p>
+      <p>${depot.postcode} ${depot.region}</p>
     </section>
 `).join('');
 renderEmptyCommentList ();
@@ -49,7 +48,6 @@ function renderSearchResult(event) {
     </header>
     <p>${depot.postcode}</p>
     <p>${depot.region}</p>
-    <p>${depot.depot_id}</p>
   </section>
 `).join('')
 

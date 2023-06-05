@@ -3,6 +3,10 @@
     cursor: pointer;
 }
 
+.depot h2:hover {
+    color: #208b57;
+}
+
 .depot > form {
     display: block;
 }
