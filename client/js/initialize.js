@@ -20,13 +20,6 @@ fetch('/api/depots')
         renderDepotList()
     })
 
-// fetch('/api/users')
-//   .then(res => res.json())
-//   .then(users => {
-//     state.users = users
-//     console.log(state.users)
-//   })
-
 fetch('/api/comments')
   .then(res => res.json())
   .then(comments => {
