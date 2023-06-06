@@ -21,14 +21,14 @@ router.post('/', (req, res) => {
     .then(comment => res.json(comment))
 })
 
-router.put('/:id', (req, res) => {
-  const commentId = req.params.id
+router.patch('/', (req, res) => {
+  const id = req.body.id
   const depot_id = req.body.depot_id
   const comment = req.body.comment
   const user_id = req.session.userId
 
   Comment
-    .update(user_id, comment, commentId)
+    .update(user_id, comment, id)
     .then(comment => res.json(comment))
 })
 

@@ -11,6 +11,8 @@ function addComment (event, depotId){
         .then(res => res.json())
         .then(comment => {
             state.comments.push(comment)
+            const commentIndex = state.comments.length - 1
+            state.comments[commentIndex].email = state.loggedInUser.email
             renderFilteredComments(depotId);
         });
     console.log('add comment successful')
