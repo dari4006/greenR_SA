@@ -15,5 +15,5 @@ function addComment (event, depotId){
             state.comments[commentIndex].email = state.loggedInUser.email
             renderFilteredComments(depotId);
         });
-    console.log('add comment successful!')
+    console.log('add comment successfully')
 }
