@@ -10,16 +10,17 @@ function renderLogout() {
   
   function logOut() {
     fetch('/api/sessions', {
-    method: 'DELETE',
-    headers: { 'Content-Type': 'application/json', 'Clear-Site-Data': '"*"' }
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json', 'Clear-Site-Data': '"*"' }
     })
-    .then(res => res.json())
-    .then(res => {
-    if (res.success) {
-    state.loggedInUser = null
-    renderLogin()
-    } else {
-    renderError(res.error)
-    }
+      .then(res => res.json())
+      .then(res => {
+        if (res.success) {
+          state.loggedInUser = null
+          renderLogin()
+          renderNav()
+        } else {
+          renderError(res.error)
+        }
     })
     }

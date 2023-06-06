@@ -1,3 +1,7 @@
+.depot > img {
+    width: 100%;
+}
+
 .depot h2 {
     font-size: 1.25rem;
     cursor: pointer;
@@ -9,4 +13,8 @@
 
 .depot > form {
     display: block;
+}
+
+.depot > p {
+    color: #565b4e;
 }
