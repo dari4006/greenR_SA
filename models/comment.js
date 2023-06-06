@@ -38,7 +38,7 @@ const Comment = {
 
   update: (user_id, comment, commentId) => {
     const sql = `
-      UPDATE comments SET user_id =1, comment = $2 WHERE id = $3
+      UPDATE comments SET user_id =$1, comment = $2 WHERE id = $3
       RETURNING *
     `
 
