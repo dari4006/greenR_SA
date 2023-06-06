@@ -23,7 +23,7 @@ To use GreenR SA:
 
 📄 Wireframes
   Wireframe for Greenr-SA is given below,
-
+![Greenr-SA Wireframe](https://raw.githubusercontent.com/mBGitRep/greenR_SA/main/Wireframe.png "Greenr-SA Wireframe")
 
 
 ✏️ Planning & Problem Solving
@@ -67,4 +67,8 @@ To use GreenR SA:
 
 📄 Screenshots
    Some screenshots of GreenR SA app are given below.
-
+![Greenr-SA Screenshot](https://raw.githubusercontent.com/mBGitRep/greenR_SA/main/01.png "Greenr-SA Screenshot")
+![Greenr-SA Screenshot](https://raw.githubusercontent.com/mBGitRep/greenR_SA/main/02.png "Greenr-SA Screenshot")
+![Greenr-SA Screenshot](https://raw.githubusercontent.com/mBGitRep/greenR_SA/main/03.png "Greenr-SA Screenshot")
+![Greenr-SA Screenshot](https://raw.githubusercontent.com/mBGitRep/greenR_SA/main/04.png "Greenr-SA Screenshot")
+![Greenr-SA Screenshot](https://raw.githubusercontent.com/mBGitRep/greenR_SA/main/05.png "Greenr-SA Screenshot")
