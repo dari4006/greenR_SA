@@ -9,21 +9,20 @@ function renderFilteredComments (depot_id) {
           parentCommentsElement.innerHTML += `
             <section class="comment" data-id='${comment.id}'>
               <p>User ${comment.user_id}:</p> 
-              <h4>${comment.comment}</h4>
+              <p>${comment.comment}</p>
               <span class="material-symbols-outlined delete" onClick="deleteComment(event,${depot_id} )">delete</span>
-              <span onclick="renderEditComment(${comment.id}, ${depot_id})">edit</span>
-            </section><br>
+              <span class="material-symbols-outlined edit" onClick="renderEditComment(${comment.id}, ${depot_id})">edit</span>
+            </section>
       `} else {
           parentCommentsElement.innerHTML += `
           <section class="comment" data-id='${comment.id}'>
             <p>User ${comment.user_id}:</p> 
-            <h4>${comment.comment}</h4>
-          </section><br>`
+            <p>${comment.comment}</p>
+          </section>`
       }
   })
 
 }
-
 
  function renderEmptyCommentList () {
   document.querySelector('#comments').innerHTML = ``
@@ -47,9 +46,9 @@ async function renderEditComment(commentId, depotId) {
       <img class="map" src="${mapImageUrl}">
     </section>
     <form class="comment-form1" action="" onSubmit="editComment(event, ${commentId}, ${depotId})">
-    <input type="textarea" name="comment" value="${commentContent}">
-    <button>Edit Comment</button>
-  </form>`;
+      <input type="textarea" name="comment" value="${commentContent}">
+      <button>Edit Comment</button>
+    </form>`;
   renderFilteredComments(depotId);
 }
 
@@ -67,12 +66,11 @@ function editComment(event, commentId, depotId){
   })
   .then(res => res.json())
   .then(comment => {
-    // console.log(comment)
     state.comments = state.comments.filter(c => c.id != comment.id)
-      state.comments.push(comment)
-      const commentIndex = state.comments.length - 1
-      state.comments[commentIndex].email = state.loggedInUser.email
-      renderFilteredComments (depotId);
+    state.comments.push(comment)
+    const commentIndex = state.comments.length - 1
+    state.comments[commentIndex].email = state.loggedInUser.email
+    renderFilteredComments (depotId);
     })
 }
 

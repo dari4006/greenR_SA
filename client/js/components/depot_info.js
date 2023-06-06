@@ -11,16 +11,17 @@ async function renderDepotInfo(depot_id) {
         <h2>${depot.depot_name}</h2>
       </header>
       <p>${depot.address}</p>
-      <p>${depot.suburb} ${depot.postcode}</p>
-      <p>${depot.region}</p>
+      <p>${depot.suburb} ${depot.postcode} (${depot.region})</p>
       <img class="map" src="${mapImageUrl}">
     </section>
-    
+  `;
+  if (state.loggedInUser != null) {
+    depotDOM.innerHTML += `
     <form class="comment-form" action="" onSubmit="addComment(event, ${depot.depot_id})">
-      <input type="textarea" name="comment">
+      <input type="text" name="comment">
       <button>Submit Comment</button>
     </form>
-  `;
+`}
   renderFilteredComments(depot_id); 
 }
 
@@ -34,7 +35,7 @@ async function getMapURL (depotId) {
   const mapImageURL  = await fetch('/bingMapsKey')
   .then(res => res.json())
   .then(key => {
-    let mapImageUrl = `https://dev.virtualearth.net/REST/v1/Imagery/Map/Road/${point}/12?mapSize=300,300&pp=${point};66&mapLayer=Basemap,Buildings&key=${key}`;
+    let mapImageUrl = `https://dev.virtualearth.net/REST/v1/Imagery/Map/Road/${point}/12?mapSize=400,400&pp=${point};66&mapLayer=Basemap,Buildings&key=${key}`;
     return mapImageUrl
   })
   return mapImageURL

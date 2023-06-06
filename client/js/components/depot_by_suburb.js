@@ -11,9 +11,7 @@ function renderSearchBySuburbResult(event) {
       <header>
         <h2 onClick="renderDepotInfo(${depot.depot_id})" >${depot.depot_name}</h2>
       </header>
-      <p>${depot.postcode}</p>
-      <p>${depot.region}</p>
-      <p>${depot.depot_id}</p>
+      <p>${depot.postcode} ${depot.region}</p>
     </section>
   `).join('')
   

@@ -18,6 +18,7 @@ fetch('/api/depots')
     .then(depots => {
         state.depots = depots
         renderDepotList()
+        renderNav()
     })
 
 fetch('/api/comments')
@@ -26,3 +27,4 @@ fetch('/api/comments')
     state.comments = comments
     console.log(state.comments)
 })
+

@@ -37,6 +37,7 @@ function renderLogin() {
         } else {
           state.loggedInUser = res
           renderDepotList()
+          renderNav()
         }
       })
   }
